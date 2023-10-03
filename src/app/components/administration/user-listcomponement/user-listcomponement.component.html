@@ -1,0 +1,59 @@
+
+     
+        <div class="rowcomtenet">
+          <div class="colunm">
+            <h4>liste User</h4> 
+                    <div class="card-body">
+<div class="bodytable">
+  <table class=" table-hover table-striped">
+    <thead>
+      <th></th>
+        <th *ngFor="let c of cols">{{c.field}}</th>
+        
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users let index = index;" >
+            <td>{{index + (pagination)*5}}</td>
+            <td >{{user.nom}}</td>
+            <td>{{user.prenom}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.roles}}</td>
+            <td><button (click)="getdetails(user.id)">details</button></td>
+        </tr>
+        
+    </tbody>
+</table>
+<br>
+
+<nav aria-label="Page navigation" *ngIf="5>0">
+  <ul class="pagination justify-content-center">
+      <li *ngIf='totalPage!=1 && pagination+1!=1' class="page-item" (click)="getPrevious()" style="color: black;" >
+        <a class="page-link">
+          <em class="fas fa-angle-left">
+
+          </em>
+        </a>
+      </li>
+      <span *ngIf="users">{{pagination+1}}
+          /
+          {{totalPage}}</span>
+      <li *ngIf='totalPage!=pagination+1'style="color: black;" class="page-item" (click)="getNext()" >
+        <a class="page-link">
+        <em class="fas fa-angle-right"></em>
+      </a></li>
+  </ul>
+</nav>
+</div>
+                     
+
+                    </div>
+                   
+
+                </div>
+                   
+              
+        
+         </div>   
+     
+
+

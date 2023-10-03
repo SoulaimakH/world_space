@@ -1,0 +1,81 @@
+<div class="container center">
+   
+
+    <div class="row d-flex justify-content-center">
+
+        <div class="col-md-2 col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="title">{{ article.title }}</h2>
+                    <h5 class="title author"> {{ article.author }}</h5>
+                </div>
+                <div class="card-body scrollable">
+                    <p class="profile-description">
+                        {{ article.text }}
+                    </p>
+                    <img [src]="link">
+                    
+                </div>
+                <br/>
+              </div>
+              <button [routerLink]="['/home/read']"
+              class="btn btn-warning btn-center">
+              Go back to Articles list
+            </button>
+        </div>
+
+        <div class="col-md-2 col-lg-5 " >
+            <div class="card"  style="background-color: #f0f2f5;">
+
+                <div class="card-header d-flex justify-content-center pt-3 pb-2"> 
+                     
+                    
+                    <div class="flexContainer">
+                        <input  [(ngModel)]="comment" name="comment" placeholder="your comment" class="form-control addtxt" type="text">
+                        <button (click)="onSend()" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                    </div>
+                  
+                </div>
+                
+                <div class=" card-body  scrollable">
+
+                    <div *ngFor="let comment of comments;" class=" card-body  justify-content-center py-2">
+                        <div class="second py-2 px-2"> <span class="text1">{{comment.text}}</span>
+                            <div class="d-flex justify-content-between py-1 pt-2">
+                                <div><img src="../assets/img/user.png" width="18">
+                                    <span *ngIf="curentUser.id==comment.UserId"class="text2">You</span>
+                                    <span *ngIf="curentUser.id!=comment.UserId"class="text2">{{comment.UserName}}</span>
+                                </div>
+                                <div><span class="text3">Upvote?</span><span class="thumbup"><i class="fa fa-thumbs-o-up"></i></span><span class="text4">3</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-body  justify-content-center py-2">
+                        <div class="second py-2 px-2"> <span class="text1">Type your note, and hit enter to add it</span>
+                            <div class="d-flex justify-content-between py-1 pt-2">
+                                <div><img src="https://i.imgur.com/tPvlEdq.jpg" width="18"><span class="text2">Curtis</span></div>
+                                <div><span class="text3 text3o">Upvoted</span><span class="thumbup"><i class="fa fa-thumbs-up thumbupo"></i></span><span class="text4 text4i">1</span></div>                            </div>
+                        </div>
+                    </div>
+                  
+                   
+                   
+                 
+                </div>
+                
+                
+            </div>
+      </div>
+    
+    
+
+
+    
+</div>
+
+
+<!--
+    template comments
+    https://bbbootstrap.com/snippets/bootstrap-comments-template-90811385
+-->

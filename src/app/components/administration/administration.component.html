@@ -1,0 +1,80 @@
+<div class="wrapper">
+    
+    <div class="sidebar" data-image="../../../assets/img/bar4.jpeg">
+        
+        <!--
+    Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+
+    Tip 2: you can also add an image using data-image tag
+-->
+        <div class="sidebar-wrapper">
+            <div class="logo">
+                <a class="simple-text">
+                    MY SPACY
+                </a>
+            </div>
+            <ul class="nav">
+                <li [class.active]="numberCard == '0'" class="nav-item">
+                    <a  (click)="changeCard('0')" class="nav-link">
+                        <i><em class="fas fa-chart-line"></em></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li>
+                    <a  (click)="changeCard('1')" class="nav-link">
+                        <i ><em class="fas fa-user"></em></i>
+                        <p>Admin Profile</p>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" (click)="changeCard('2')">
+                        <i><i class="fa-solid fa-table-list"></i></i>
+                        <p>Table List</p>
+                    </a>
+                </li>
+               
+              
+            </ul>
+        </div>
+    </div>
+    <div class="main-panel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+            <div class="container-fluid">
+                <a class="navbar-brand" *ngIf="numberCard == '0'"> Dashboard </a>
+                <a class="navbar-brand" *ngIf="numberCard == '1'"> profile details </a>
+                <a class="navbar-brand" *ngIf="numberCard == '2'"> users lists </a>
+                <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar burger-lines"></span>
+                    <span class="navbar-toggler-bar burger-lines"></span>
+                    <span class="navbar-toggler-bar burger-lines"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navigation">
+
+                
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" (click)='logOut()'>
+                                <span class="no-icon">Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End Navbar -->
+      
+        <div class="content">
+                        <div *ngIf="numberCard == '0'" >
+                            <app-dashbordcomponement></app-dashbordcomponement>
+                        </div>
+                        <div *ngIf="numberCard == '1'" >
+                            <app-admin-profilecomponement [user]="user"></app-admin-profilecomponement>
+                        </div>
+                        <div *ngIf="numberCard == '2'" >
+                            <app-recherche-user (userid)="getuserdetails($event)" ></app-recherche-user>
+                        </div>
+                        
+        </div>
+            </div>
+          </div>    

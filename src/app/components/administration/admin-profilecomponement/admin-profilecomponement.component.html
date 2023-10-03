@@ -1,0 +1,89 @@
+<div class="content">
+    <div class="container-fluid">
+        <br>
+ <br>
+ <br>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Edit Profile</h4>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="myform">
+                            <div class="row">
+                              
+                                <div class="col-md-3 px-1">
+                                    <div class="form-group">
+                                        <label>Login</label>
+                                        <input formControlName="login"  type="text" class="form-control" placeholder="user.login" [(ngModel)]="user.login" >
+                                    </div>
+                                </div>
+                                <div class="col-md-4 pl-1">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email</label>
+                                        <input formControlName="email"  type="email" class="form-control" name="email" placeholder="email" [(ngModel)]="user.email" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 pr-1">
+                                    <div class="form-group">
+                                        <label>Firstname</label>
+                                        <input formControlName="prenom"  type="text" class="form-control" placeholder="user.prenom" [(ngModel)]="user.prenom" >
+                                    </div>
+                                </div>
+                                <div class="col-md-6 pl-1">
+                                    <div class="form-group">
+                                        <label>Lastname</label>
+                                        <input formControlName="nom"  type="text" class="form-control" placeholder="nom" [(ngModel)]="user.nom" >
+                                    </div>
+                                </div>
+                            </div>
+           
+                            <button (click)='update()' [disabled]="myform.invalid" type="submit" class="submit btn pull-right editbutton">Update Profile</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-user">
+                    <div class="card-image">
+                        <img src="https://images.hdqwalls.com/wallpapers/lynette-space-scenery-scifi-rf.jpg" alt="...">
+                    </div>
+                    
+                    <div >
+                        <div class="author">
+                            <a >
+                                <img class="avatar border-gray" src="../assets/img/user.png" alt="...">
+                            </a>
+                            <br>
+                            <br>
+                            <p class="description">
+                                {{user.login}}
+                            </p>
+                        </div>
+                        <div class="description text-center">
+                           {{user.roles}}
+                        </div>
+                    </div>
+                    <br>
+                    
+                    <hr>
+                    <div class="button-container mr-auto ml-auto">
+                        <button href="#" class="btn btn-simple btn-link btn-icon">
+                            <i class="fa fa-facebook-square"></i>
+                        </button>
+                        <button href="#" class="btn btn-simple btn-link btn-icon">
+                            <i class="fa fa-twitter"></i>
+                        </button>
+                        <button href="#" class="btn btn-simple btn-link btn-icon">
+                            <i class="fa fa-google-plus-square"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
